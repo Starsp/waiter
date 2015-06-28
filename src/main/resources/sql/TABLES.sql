@@ -4,7 +4,7 @@ CREATE TABLE cafe (
 );
 
 CREATE TABLE unit (
-    id		    	  SERIAL	 	NOT NULL PRIMARY KEY,
+    id		    	  INT   	 	NOT NULL PRIMARY KEY,
     name 		      CHAR(255)	NOT NULL
 );
 
@@ -29,7 +29,7 @@ CREATE TABLE product (
 
 CREATE TABLE booking (
    id 			        SERIAL		NOT NULL PRIMARY KEY,
-   cafeID			      SERIAL		NOT NULL REFERENCES cafe(id),
+   cafeIDd		      SERIAL		NOT NULL REFERENCES cafe(id),
    productID		    SERIAL		NOT NULL REFERENCES product(id),
    tableNumber		  INT		    NOT NULL,
    count		      	INT		    NOT NULL DEFAULT 1,
