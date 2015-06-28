@@ -1,26 +1,26 @@
-package model;
+package by.waiter.model;
 
 /**
  * Created by Vassilev on 28.06.2015.
  */
 public class Product {
 
-    private int id;
+    private Integer id;
     private String name;
     private Unit unit;
-    private int output;
+    private Integer output;
     private String composition;
-    private int time;
-    private int available;
-    private int price;
+    private Integer time;
+    private boolean available;
+    private Integer price;
     private Category category;
+    private Cafe cafe;
 
-
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -40,11 +40,11 @@ public class Product {
         this.unit = unit;
     }
 
-    public int getOutput() {
+    public Integer getOutput() {
         return output;
     }
 
-    public void setOutput(int output) {
+    public void setOutput(Integer output) {
         this.output = output;
     }
 
@@ -56,27 +56,27 @@ public class Product {
         this.composition = composition;
     }
 
-    public int getTime() {
+    public Integer getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(Integer time) {
         this.time = time;
     }
 
-    public int getAvailable() {
+    public boolean isAvailable() {
         return available;
     }
 
-    public void setAvailable(int available) {
+    public void setAvailable(boolean available) {
         this.available = available;
     }
 
-    public int getPrice() {
+    public Integer getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(Integer price) {
         this.price = price;
     }
 
@@ -86,5 +86,13 @@ public class Product {
 
     public void setCategory(Category category) {
         this.category = category;
+    }
+
+    public Cafe getCafe() {
+        return cafe;
+    }
+
+    public void setCafe(Cafe cafe) {
+        this.cafe = cafe;
     }
 }

@@ -1,6 +1,6 @@
-package DAO;
+package by.waiter.DAO;
 
-import model.Unit;
+import by.waiter.model.Unit;
 
 import java.util.List;
 
@@ -12,7 +12,5 @@ public interface UnitDAO {
     public List<Unit> getAllUnits();
 
     public Unit getUnitByID(int id);
-
-    public Unit mergeUnit(Unit unit);
 
 }

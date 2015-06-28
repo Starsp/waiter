@@ -1,18 +1,19 @@
-package model;
+package by.waiter.model;
 
 /**
  * Created by Vassilev on 28.06.2015.
  */
-public class Cafe {
+//В БД таблица сущности имеет древовидную структуру
+public class Category {
 
-    private int id;
+    private Integer id;
     private String name;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -23,4 +24,5 @@ public class Cafe {
     public void setName(String name) {
         this.name = name;
     }
+
 }

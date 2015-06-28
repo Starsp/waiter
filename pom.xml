@@ -9,6 +9,10 @@
     <version>1.0</version>
     <packaging>war</packaging>
 
+    <properties>
+        <org.slf4j.version>1.7.2</org.slf4j.version>
+    </properties>
+
     <dependencies>
 
         <dependency>
@@ -23,6 +27,7 @@
             <version>2.1</version>
         </dependency>
 
+        <!-- SPRING-->
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-orm</artifactId>
@@ -53,8 +58,14 @@
             <version>4.1.6.RELEASE</version>
         </dependency>
 
-        <!-- JSON parsing-->
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-jdbc</artifactId>
+            <version>4.1.6.RELEASE</version>
+        </dependency>
 
+
+        <!-- JSON parsing-->
         <dependency>
             <groupId>org.codehaus.jackson</groupId>
             <artifactId>jackson-mapper-asl</artifactId>
@@ -69,13 +80,38 @@
             <scope>compile</scope>
         </dependency>
 
-        <!--test support-->
+        <!-- логирование -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+            <version>1.7.12</version>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.12</version>
+        </dependency>
 
+        <dependency>
+            <groupId>postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>9.1-901-1.jdbc4</version>
+        </dependency>
+
+
+        <!--test support-->
         <dependency>
             <groupId>org.apache.tomcat</groupId>
             <artifactId>tomcat-servlet-api</artifactId>
             <version>7.0.33</version>
             <scope>provided</scope>
+        </dependency>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-test</artifactId>
+            <version>4.1.6.RELEASE</version>
+            <scope>test</scope>
         </dependency>
 
         <dependency>

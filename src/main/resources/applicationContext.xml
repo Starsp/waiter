@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:security="http://www.springframework.org/schema/security"
+       xmlns:oauth="http://www.springframework.org/schema/security/oauth2"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/security/oauth2 http://www.springframework.org/schema/security/spring-security-oauth2-2.0.xsd
+		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.1.xsd
+		http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.2.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
+		http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.1.xsd
+		http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.1.xsd">
+
+    <context:component-scan base-package="org.springframework.jdbc.datasource"/>
+
+    <context:property-placeholder location="classpath:web-waiter.properties" system-properties-mode="OVERRIDE"
+                                  order="1001"/>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="url" value="${dataSource.url}"/>
+        <property name="username" value="${dataSource.login}"/>
+        <property name="password" value="${dataSource.password}"/>
+        <property name="driverClassName" value="org.postgresql.Driver"/>
+    </bean>
+
+    <!--ДАО-->
+    <bean id="baseDao" class="by.waiter.core.BaseDao" abstract="true">
+        <property name="dataSource" ref="dataSource"/>
+        <property name="queryTimeout" value="60"/>
+    </bean>
+
+    <bean id="bookingDAO" class="by.waiter.DAO.Impl.BookingDAOImpl"/>
+    <bean id="cafeDAO" class="by.waiter.DAO.Impl.CafeDAOImpl" parent="baseDao"/>
+    <bean id="categoryDAO" class="by.waiter.DAO.Impl.CategoryDAOImpl" parent="baseDao"/>
+    <bean id="productDAO" class="by.waiter.DAO.Impl.ProductDAOImpl" parent="baseDao"/>
+    <bean id="unitDAO" class="by.waiter.DAO.Impl.UnitDAOImpl" parent="baseDao"/>
+
+    <!-- поддержка транзакций -->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+
+    <bean id="transactionTemplate" class="org.springframework.transaction.support.TransactionTemplate">
+        <property name="transactionManager" ref="transactionManager"/>
+    </bean>
+
+    <!-- WEB -->
+    <bean id="viewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/pages/"/>
+        <property name="suffix" value=".jsp"/>
+    </bean>
+
+</beans>
