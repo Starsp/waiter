@@ -30,14 +30,12 @@ CREATE TABLE category (
   id            SERIAL NOT NULL PRIMARY KEY,
   sub_category  SERIAL REFERENCES category (id),
   retail_unit   SERIAL REFERENCES retail_unit (id),
-  category_name INT REFERENCES doc (id),
-  lang          INT    NOT NULL REFERENCES lang (id)
+  category_name INT REFERENCES doc (id)
 );
 
 CREATE TABLE product (
   id           SERIAL NOT NULL PRIMARY KEY,
   product_name INT    NOT NULL REFERENCES doc (id),
-  lang         INT    NOT NULL REFERENCES lang (id),
   retail_unit  INT    NOT NULL REFERENCES retail_unit (id),
   weight       FLOAT,
   time         INT,
