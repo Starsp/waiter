@@ -1,20 +1,21 @@
 package by.waiter.DAO;
 
 import by.waiter.model.Booking;
-import by.waiter.model.Cafe;
+import by.waiter.model.Retail;
 
 import java.util.List;
 
 /**
- * Created by Vassilev on 28.06.2015.
+ * Created by Vassilev
+ * 28.06.2015.
  */
 public interface BookingDAO {
 
     List<Booking> getBookingList();
 
-    List<Booking> getBookingByCafe(Cafe cafe);
+    List<Booking> getBookingByCafe(Retail retail);
 
-    List<Booking> getBookingByTable(Cafe cafe, int tableNumber);
+    List<Booking> getBookingByTable(Retail retail, int tableNumber);
 
     Booking mergeBooking(Booking booking);
 

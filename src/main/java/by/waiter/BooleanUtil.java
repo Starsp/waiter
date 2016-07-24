@@ -1,7 +1,8 @@
 package by.waiter;
 
 /**
- * Created by Vassilev on 28.06.2015.
+ * Created by Vassilev
+ * 28.06.2015.
  */
 public class BooleanUtil {
 

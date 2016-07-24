@@ -1,6 +1,6 @@
 package by.waiter.DAO;
 
-import by.waiter.model.Cafe;
+import by.waiter.model.Retail;
 import by.waiter.model.Category;
 import by.waiter.model.Product;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,5 +19,5 @@ public interface ProductDAO {
     @Transactional
     Product mergeProduct(Product product);
 
-    List<Product> getProductListByCafe(Cafe cafe, Category category);
+    List<Product> getProductListByCafe(Retail retail, Category category);
 }

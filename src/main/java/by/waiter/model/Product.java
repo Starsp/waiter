@@ -1,20 +1,23 @@
 package by.waiter.model;
 
+import java.math.BigDecimal;
+
 /**
- * Created by Vassilev on 28.06.2015.
+ * Created by Vassilev
+ * 28.06.2015.
  */
 public class Product {
 
     private Integer id;
     private String name;
-    private Unit unit;
-    private Integer output;
-    private String composition;
+    private RetailUnit retailUnit;
+    private Float weight;
     private Integer time;
     private boolean available;
-    private Integer price;
+    private BigDecimal price;
     private Category category;
-    private Cafe cafe;
+    private Retail retail;
+    private String description;
 
     public Integer getId() {
         return id;
@@ -32,28 +35,20 @@ public class Product {
         this.name = name;
     }
 
-    public Unit getUnit() {
-        return unit;
+    public RetailUnit getRetailUnit() {
+        return retailUnit;
     }
 
-    public void setUnit(Unit unit) {
-        this.unit = unit;
+    public void setRetailUnit(RetailUnit retailUnit) {
+        this.retailUnit = retailUnit;
     }
 
-    public Integer getOutput() {
-        return output;
+    public Float getWeight() {
+        return weight;
     }
 
-    public void setOutput(Integer output) {
-        this.output = output;
-    }
-
-    public String getComposition() {
-        return composition;
-    }
-
-    public void setComposition(String composition) {
-        this.composition = composition;
+    public void setWeight(Float weight) {
+        this.weight = weight;
     }
 
     public Integer getTime() {
@@ -72,11 +67,11 @@ public class Product {
         this.available = available;
     }
 
-    public Integer getPrice() {
+    public BigDecimal getPrice() {
         return price;
     }
 
-    public void setPrice(Integer price) {
+    public void setPrice(BigDecimal price) {
         this.price = price;
     }
 
@@ -88,11 +83,19 @@ public class Product {
         this.category = category;
     }
 
-    public Cafe getCafe() {
-        return cafe;
+    public Retail getRetail() {
+        return retail;
     }
 
-    public void setCafe(Cafe cafe) {
-        this.cafe = cafe;
+    public void setRetail(Retail retail) {
+        this.retail = retail;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }
